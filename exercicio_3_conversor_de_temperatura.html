@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8">
+    <title>Conversor de temperatura</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            height: 110px;
+            border-style: solid;
+            border-color: rgb(163, 159, 159);
+            border-radius: 4px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 50px;
+            border-radius: 2px;
+        }
+
+        button {
+            border-radius: 2px;
+            width: 70px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Conversor de temperatura</h3>
+
+        <p>Temperatura em Fahrenheit:
+            <input type="number" id="value">
+            <button onclick="convert()">converter</button>
+            <button  onclick="clearFields()">limpar</button>
+        </p>
+
+        <p>Temperatura em Celsius:
+            <span id="result" class="result"></span>
+        </p>
+    </div>
+
+    <script>
+        function convert() {
+            let tempF = parseInt(document.getElementById("value").value);
+            if (isNaN(tempF)) {
+                document.getElementById("result").innerHTML = "Por favor inserir valores válidos!";
+                return;
+            } else {
+                tempC = (tempF - 32) * (5 / 9);
+                document.getElementById("result").innerHTML = tempC.toFixed(2) + "°C";
+            }
+        }
+        // This function that will clear all fields
+        function clearFields() {
+            if (document.getElementById("value") && document.getElementById("result") != "") {
+                document.getElementById("value").value = "";;
+                document.getElementById("result").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

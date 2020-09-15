@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html></html>
+<head>
+    <meta charset="UTF8">
+    <title>Tabuada</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        input {
+            width: 40px;
+            margin-left: 10px;
+            border-radius: 2px;
+        }
+
+        button {
+            display: inline-block;
+            margin-left: 10px;
+            border-radius: 2px;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            border-style: solid;
+            border-color: rgb(168, 166, 166);
+            border-radius: 4px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        table {
+            font-size: 18px;
+        }
+
+        td {
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tabuada de
+            <input type="number" id="number">
+            <button onclick="tabuada()">Calcular</button>
+        </h2>
+        <div class="table">
+            <table id="result"></table>
+        </div>
+    </div>
+
+    <script>
+
+        // This function will calculate the multiplication table
+        function tabuada() {
+            let valor = parseInt(document.getElementById("number").value);
+
+            if (isNaN(valor)) {
+                alert("Por favor inserir valores válidos!");
+                return;
+            }
+
+            document.getElementById("number").value = "";
+            document.getElementById("result").innerHTML = "";
+
+            for (count = 1; count <= 10; count++) {
+                let result = document.getElementById("result")
+                result.insertAdjacentHTML("beforeend", "<tr><td>" + count + " x " + valor + " =</td><td>" + (count * valor) + "</td></tr>");
+            };
+        }
+    </script>
+</body>
+</html>
